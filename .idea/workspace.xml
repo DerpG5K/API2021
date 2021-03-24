@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15d6be4b-cb48-4433-826c-e187fe27d74b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PackagesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Packages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_24_012505_create_packages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/PackagesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_005846_create_articles_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ArticlesTableSeeder.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
