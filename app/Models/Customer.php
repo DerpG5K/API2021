@@ -31,11 +31,11 @@ class Customer extends Model
 
     public function tickets()
     {
-        return $this->hasMany(Ticket::class, 'customerId')->where('isCustomer', '=', true);
+        return $this->hasMany(Ticket::class, 'userId')->where('isCustomer', '=', true);
     }
 
     public function ticketLogs()
     {
-        return $this->hasMany(TicketLog::class, 'customerId')->where('isCustomer', '=', true);
+        return $this->hasMany(TicketLog::class, 'userId')->where('isCustomer', '=', true);
     }
 }

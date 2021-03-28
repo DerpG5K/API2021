@@ -27,7 +27,6 @@ class DeliveryTypeController extends Controller
 
     public function update(Request $request, DeliveryType $deliveryType)
     {
-
         $deliveryType->update($request->all());
 
         return response()->json($deliveryType, 200);
@@ -35,7 +34,6 @@ class DeliveryTypeController extends Controller
 
     public function delete(DeliveryType $deliveryType)
     {
-
         $deliveryType->delete();
 
         return response()->json(null,204);

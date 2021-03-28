@@ -26,7 +26,6 @@ class CustomsController extends Controller
 
     public function update(Request $request, Custom $custom)
     {
-
         $custom->update($request->all());
 
         return response()->json($custom, 200);
@@ -34,7 +33,6 @@ class CustomsController extends Controller
 
     public function delete(Custom $custom)
     {
-
         $custom->delete();
 
         return response()->json(null,204);
