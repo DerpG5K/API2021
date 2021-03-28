@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Customer;
-use App\Models\Order;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,14 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-        $this->call(EmployeesTableSeeder::class);
-        $this->call(PackagesTableSeeder::class);
+        // $this->call(UserSeeder::class);
+        $this->call(AddressTableSeeder::class);
+        $this->call(DeliveryTypeTableSeeder::class);
+        $this->call(OrderTableSeeder::class);
+        $this->call(ParcelTypeTableSeeder::class);
+        $this->call(CustomTableSeeder::class);
+        $this->call(FlightTableSeeder::class);
+        $this->call(ParcelTableSeeder::class);
+        $this->call(ParcelCheckTableSeeder::class);
 
-        Customer::factory()->count(30)->create()->each(function ($customer) {
-            // Seed the relation with 5 orders/customer
-            $orders = Order::factory()->count(5)->make();
-            $customer->orders()->saveMany($orders);
-        });
     }
 }

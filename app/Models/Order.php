@@ -2,22 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+    protected $fillable = ['customerId', 'totalPrice', 'isPaid', 'extraInfo'];
 
-    protected $fillable = [
-        'name'
-    ];
-
-    /**
-     * Get the Customer that owns the Order.
-     */
-    public function customer()
+    public function packages()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->hasMany(Parcel::class, 'orderId');
     }
 }
