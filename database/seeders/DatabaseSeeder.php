@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TicketTablesSeeder::class);
         $this->call(TicketFileTableSeeder::class);
         $this->call(TicketLogTableSeeder::class);
+        $this->call(PasswordTablesSeeder::class);
     }
 }
