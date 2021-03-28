@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->boolean('isAdmin');
             $table->timestamps();
         });
+
     }
 
     /**
