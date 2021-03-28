@@ -26,7 +26,6 @@ class ParcelTypeController extends Controller
 
     public function update(Request $request, ParcelType $parcelType)
     {
-
         $parcelType->update($request->all());
 
         return response()->json($parcelType, 200);
@@ -34,7 +33,6 @@ class ParcelTypeController extends Controller
 
     public function delete(ParcelType $parcelType)
     {
-
         $parcelType->delete();
 
         return response()->json(null,204);

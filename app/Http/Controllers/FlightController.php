@@ -26,7 +26,6 @@ class FlightController extends Controller
 
     public function update(Request $request, Flight $flight)
     {
-
         $flight->update($request->all());
 
         return response()->json($flight, 200);
@@ -34,7 +33,6 @@ class FlightController extends Controller
 
     public function delete(Flight $flight)
     {
-
         $flight->delete();
 
         return response()->json(null,204);

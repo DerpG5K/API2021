@@ -26,7 +26,6 @@ class BusinessController extends Controller
 
     public function update(Request $request, Business $business)
     {
-
         $business->update($request->all());
 
         return response()->json($business, 200);
@@ -34,7 +33,6 @@ class BusinessController extends Controller
 
     public function delete(Business $business)
     {
-
         $business->delete();
 
         return response()->json(null,204);

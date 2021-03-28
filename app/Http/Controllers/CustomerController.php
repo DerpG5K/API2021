@@ -26,7 +26,6 @@ class CustomerController extends Controller
 
     public function update(Request $request, Customer $customer)
     {
-
         $customer->update($request->all());
 
         return response()->json($customer, 200);
@@ -34,7 +33,6 @@ class CustomerController extends Controller
 
     public function delete(Customer $customer)
     {
-
         $customer->delete();
 
         return response()->json(null,204);

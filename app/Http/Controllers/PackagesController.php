@@ -26,14 +26,12 @@ class PackagesController extends Controller
     }
     public function update(Request $request, Packages $id)
     {
-
         $id->update($request->all());
 
         return response()->json($id, 200);
     }
     public function delete(Packages $id)
     {
-
         $id->delete();
 
         return response()->json(null,204);

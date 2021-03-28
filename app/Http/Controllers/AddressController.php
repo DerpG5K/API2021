@@ -26,7 +26,6 @@ class AddressController extends Controller
 
     public function update(Request $request, Address $address)
     {
-
         $address->update($request->all());
 
         return response()->json($address, 200);
@@ -34,7 +33,6 @@ class AddressController extends Controller
 
     public function delete(Address $address)
     {
-
         $address->delete();
 
         return response()->json(null,204);

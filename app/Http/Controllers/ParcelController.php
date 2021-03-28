@@ -26,7 +26,6 @@ class ParcelController extends Controller
 
     public function update(Request $request, Parcel $parcel)
     {
-
         $parcel->update($request->all());
 
         return response()->json($parcel, 200);
@@ -34,14 +33,8 @@ class ParcelController extends Controller
 
     public function delete(Parcel $parcel)
     {
-
         $parcel->delete();
 
         return response()->json(null,204);
-    }
-
-    public function showFlight(Parcel $parcel)
-    {
-        return $parcel->flight();
     }
 }

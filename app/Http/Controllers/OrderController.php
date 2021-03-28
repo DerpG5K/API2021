@@ -26,7 +26,6 @@ class OrderController extends Controller
 
     public function update(Request $request, Order $order)
     {
-
         $order->update($request->all());
 
         return response()->json($order, 200);
@@ -34,7 +33,6 @@ class OrderController extends Controller
 
     public function delete(Order $order)
     {
-
         $order->delete();
 
         return response()->json(null,204);
