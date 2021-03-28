@@ -1,15 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-
-//Packages
-Route::get('packages', 'PackagesController@index');
-Route::get('packages/{id}', 'PackagesController@show');
-Route::post('packages', 'PackagesController@store');
-Route::put('packages/{id}', 'PackagesController@update');
-Route::delete('packages/{id}', 'PackagesController@delete');
 
 // Resource controllers
 Route::resource('flights', 'FlightController', ['except' => ['create', 'edit']]);
