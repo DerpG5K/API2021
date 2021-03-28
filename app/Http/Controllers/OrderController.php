@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\Customer;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -20,22 +19,24 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $customer = Customer::create($request->all());
+        $order = Order::create($request->all());
 
-        return response()->json($customer, 201);
+        return response()->json($order, 201);
     }
 
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Order $order)
     {
-        $customer->update($request->all());
 
-        return response()->json($customer, 200);
+        $order->update($request->all());
+
+        return response()->json($order, 200);
     }
 
-    public function delete(Customer $customer)
+    public function delete(Order $order)
     {
-        $customer->delete();
 
-        return response()->json(null, 204);
+        $order->delete();
+
+        return response()->json(null,204);
     }
 }

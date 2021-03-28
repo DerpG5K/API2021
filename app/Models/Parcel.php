@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parcel extends Model
 {
-    //
     protected $fillable = [
         'trackingNumber',
         'height',
@@ -33,4 +32,8 @@ class Parcel extends Model
 //    public function deliveryType(){
 //           return $this->hasMany('App\DeliveryType');
 //    }
+
+    public function flight() {
+        return $this->hasOne(Flight::class);
+    }
 }
