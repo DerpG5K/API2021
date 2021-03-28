@@ -25,6 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ParcelCheckTableSeeder::class);
         $this->call(BusinessTableSeeder::class);
         $this->call(CustomerTableSeeder::class);
-
+        $this->call(TicketCategoryTableSeeder::class);
+        $this->call(TicketStateTableSeeder::class);
+        $this->call(TicketTablesSeeder::class);
+        $this->call(TicketFileTableSeeder::class);
+        $this->call(TicketLogTableSeeder::class);
     }
 }
