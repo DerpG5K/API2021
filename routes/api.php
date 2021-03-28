@@ -12,3 +12,5 @@ Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_checks', 'ParcelCheckController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_types', 'ParcelTypeController', ['except' => ['create', 'edit']]);
 Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
+Route::resource('businesses', 'BusinessController', ['except' => ['create', 'edit']]);
+Route::resource('customers', 'CustomerController', ['except' => ['create', 'edit']]);

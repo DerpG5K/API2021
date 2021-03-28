@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FlightTableSeeder::class);
         $this->call(ParcelTableSeeder::class);
         $this->call(ParcelCheckTableSeeder::class);
+        $this->call(BusinessTableSeeder::class);
+        $this->call(CustomerTableSeeder::class);
 
     }
 }
