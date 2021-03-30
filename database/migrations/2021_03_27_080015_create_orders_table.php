@@ -16,11 +16,16 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customerId')->unsigned();
-            // $table->foreign('customerId')->references('id')->on('customers');
             $table->integer('totalPrice');
             $table->boolean('isPaid');
             $table->text('extraInfo');
             $table->timestamps();
+        });
+        Schema::table('orders', function ($table) {
+            $table->engine = 'InnoDB';
+            $table->foreign('customerId')->references('id')->on('customers');
+
+
         });
     }
 

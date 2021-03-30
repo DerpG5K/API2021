@@ -29,7 +29,6 @@ class ParcelTableSeeder extends Seeder
         $addresses = Address::all()->pluck('id')->toArray();
         $customs = Custom::all()->pluck('id')->toArray();
         $deliveryTypes = DeliveryType::all()->pluck('id')->toArray();
-
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 500; $i++) {
 

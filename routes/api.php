@@ -9,6 +9,12 @@ Route::resource('addresses', 'AddressController', ['except' => ['create', 'edit'
 Route::resource('customs', 'CustomsController', ['except' => ['create', 'edit']]);
 Route::resource('delivery_types', 'DeliveryTypeController', ['except' => ['create', 'edit']]);
 Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
+Route::get('orders/{id}/parcels','OrderController@parcels' );
+Route::get('orders/{id}/parcels/{pid}','OrderController@parcelDetail' );
+Route::get('orders/{id}/parcels/{pid}/depAddress/{aid}','OrderController@parcelDepAddress' );
+Route::get('orders/{id}/parcels/{pid}/destAddress/','OrderController@parcelDestAddress' );
+
+
 Route::resource('parcel_checks', 'ParcelCheckController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_types', 'ParcelTypeController', ['except' => ['create', 'edit']]);
 Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);

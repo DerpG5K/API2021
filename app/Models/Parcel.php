@@ -23,17 +23,25 @@ class Parcel extends Model
         'orderId',
         'deliveryTypeId'];
 
-//    public function depAdress(){
-//           return $this->hasOne('App\Address');
-//    }
-//    public function arrivalAdress(){
-//           return $this->hasOne('App\Address');
-//    }
-//    public function deliveryType(){
-//           return $this->hasMany('App\DeliveryType');
-//    }
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'id');
+    }
     public function flight() {
         return $this->hasOne(Flight::class);
     }
+    public function destAddress() {
+        return $this->hasOne(Address::class,'id','destAddressId');
+    }
+    public function depAddress() {
+        return $this->hasOne(Address::class,'id','depAddressId');
+    }
+    public function custom() {
+        return $this->belongsTo(Custom::class, 'id','customsId');
+    }
+    public function deliveryType() {
+        return $this->hasOne(DeliveryType::class,'id','deliveryTypeId');
+    }
+
 }

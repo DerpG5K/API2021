@@ -20,6 +20,7 @@ class OrderTableSeeder extends Seeder
         Order::truncate();
 
         $faker = \Faker\Factory::create();
+        $customers = \App\Models\Customer::all()->pluck('id')->toArray();
 
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 100; $i++) {
@@ -30,7 +31,7 @@ class OrderTableSeeder extends Seeder
                 $value .= substr($alphabet, rand(0, strlen($alphabet) - 1), 1);
             }
             Order::create([
-                'customerId' => $faker->randomNumber(5),
+                'customerId' => $faker->randomElement($customers),
                 'totalPrice' => $faker->randomFloat(2, 1, 5000),
                 'isPaid' => $faker->boolean($chanceOfGettingTrue = 50),
                 'extraInfo' => $faker->boolean($chanceOfGettingTrue = 50)
