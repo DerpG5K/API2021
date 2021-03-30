@@ -53,17 +53,24 @@ class OrderController extends Controller
         return $parcel;
     }
 
-    public function parcelDepAddress($aid)
+    public function parcelDepAddress($id, $pid,$aid)
     {
         $depAddress = Address::all()
             ->where('id',$aid);
         return $depAddress;
     }
 
-    public function parcelDestAddress($pid)
+    public function parcelDestAddress($id, $pid,$aid)
     {
-        $parcel = Parcel::all()
-            ->where('id',$pid);
-        return $parcel;
+        $depAddress = Address::all()
+            ->where('id',$aid);
+        return $depAddress;
     }
+    public function parcelCustom($id, $pid,$cid)
+    {
+        $custom = Models\Custom::all()
+            ->where('id',$cid);
+        return $custom;
+    }
+
 }

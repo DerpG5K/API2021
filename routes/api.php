@@ -12,7 +12,9 @@ Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
 Route::get('orders/{id}/parcels','OrderController@parcels' );
 Route::get('orders/{id}/parcels/{pid}','OrderController@parcelDetail' );
 Route::get('orders/{id}/parcels/{pid}/depAddress/{aid}','OrderController@parcelDepAddress' );
-Route::get('orders/{id}/parcels/{pid}/destAddress/','OrderController@parcelDestAddress' );
+Route::get('orders/{id}/parcels/{pid}/destAddress/{aid}','OrderController@parcelDestAddress' );
+Route::get('orders/{id}/parcels/{pid}/customs/{cid}','OrderController@parcelCustom' );
+
 
 
 Route::resource('parcel_checks', 'ParcelCheckController', ['except' => ['create', 'edit']]);
