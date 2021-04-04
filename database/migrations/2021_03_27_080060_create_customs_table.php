@@ -15,11 +15,15 @@ class CreateCustomsTable extends Migration
     {
         Schema::create('customs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('parcelId')->unsigned()->nullable();
             $table->integer('totalPrice');
             $table->string('customName');
             $table->string('customSize');
             $table->timestamps();
-
+        });
+        Schema::table('customs', function ($table) {
+            $table->engine = 'InnoDB';
+            $table->foreign('parcelId')->references('id')->on('parcels');
 
         });
     }

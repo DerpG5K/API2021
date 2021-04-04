@@ -20,8 +20,9 @@ class CreateParcelTable extends Migration
             $table->integer('flightId')->unsigned()->nullable();
             $table->integer('depAddressId')->unsigned()->nullable();
             $table->integer('destAddressId')->unsigned()->nullable();
-            $table->integer('customsId')->unsigned()->nullable();
+            //$table->integer('customsId')->unsigned()->nullable();
             $table->integer('deliveryTypeId')->unsigned()->nullable();
+            $table->integer('parcelTypeId')->unsigned()->nullable();
             $table->string('trackingNumber');
             $table->integer('weight');
             $table->integer('height');
@@ -42,9 +43,9 @@ class CreateParcelTable extends Migration
             $table->foreign('orderId')->references('id')->on('orders');
             $table->foreign('depAddressId')->references('id')->on('addresses');
             $table->foreign('destAddressId')->references('id')->on('addresses');
-            $table->foreign('customsId')->references('id')->on('customs');
+            //$table->foreign('customsId')->references('id')->on('customs');
             $table->foreign('deliveryTypeId')->references('id')->on('delivery_types');
-
+            $table->foreign('parcelTypeId')->references('id')->on('parcel_types');
         });
     }
 

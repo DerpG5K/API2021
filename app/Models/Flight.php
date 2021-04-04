@@ -17,4 +17,6 @@ class Flight extends Model
         'reservedVolume',
         'airlineName'];
 
+
+
 }

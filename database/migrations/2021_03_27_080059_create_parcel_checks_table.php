@@ -16,9 +16,14 @@ class CreateParcelChecksTable extends Migration
         Schema::create('parcel_checks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parcelId')->unsigned();
-            $table->foreign('parcelId')->references('id')->on('parcels');
             $table->string('location');
             $table->timestamps();
+
+        });
+        Schema::table('parcel_checks', function ($table) {
+            $table->engine = 'InnoDB';
+            $table->foreign('parcelId')->references('id')->on('parcels');
+
 
         });
     }

@@ -10,6 +10,10 @@ class Order extends Model
 
     public function parcels()
     {
-        return $this->hasMany(Parcel::class,'orderId');
+        return $this->hasMany(Parcel::class,'orderId','id');
+    }
+    public function customer()
+    {
+        return $this->hasOne(Customer::class,'id','customerId');
     }
 }

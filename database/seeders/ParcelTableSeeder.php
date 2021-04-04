@@ -8,6 +8,7 @@ use App\Models\DeliveryType;
 use App\Models\Flight;
 use App\Models\Order;
 use App\Models\Parcel;
+use App\Models\ParcelType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -27,8 +28,9 @@ class ParcelTableSeeder extends Seeder
         $orders = Order::all()->pluck('id')->toArray();
         $flights = Flight::all()->pluck('id')->toArray();
         $addresses = Address::all()->pluck('id')->toArray();
-        $customs = Custom::all()->pluck('id')->toArray();
         $deliveryTypes = DeliveryType::all()->pluck('id')->toArray();
+        $parcelType = ParcelType::all()->pluck('id')->toArray();
+
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 500; $i++) {
 
@@ -45,10 +47,10 @@ class ParcelTableSeeder extends Seeder
                 'isAllocated' => $faker->boolean(50),
                 'arrivalTimeStamp' => $faker->dateTime('now'),
                 'departureTimeStamp' => $faker->dateTime('now'),
+                'parcelTypeId' => $faker->randomElement($parcelType),
                 'flightId' => $faker->randomElement($flights),
                 'depAddressId' => $faker->randomElement($addresses),
                 'destAddressId' => $faker->randomElement($addresses),
-                'customsId' => $faker->randomElement($customs),
                 'deliveryTypeId' => $faker->randomElement($deliveryTypes)
 
             ]);

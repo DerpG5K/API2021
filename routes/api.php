@@ -9,11 +9,16 @@ Route::resource('addresses', 'AddressController', ['except' => ['create', 'edit'
 Route::resource('customs', 'CustomsController', ['except' => ['create', 'edit']]);
 Route::resource('delivery_types', 'DeliveryTypeController', ['except' => ['create', 'edit']]);
 Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
-Route::get('orders/{id}/parcels','OrderController@parcels' );
-Route::get('orders/{id}/parcels/{pid}','OrderController@parcelDetail' );
-Route::get('orders/{id}/parcels/{pid}/depAddress/{aid}','OrderController@parcelDepAddress' );
-Route::get('orders/{id}/parcels/{pid}/destAddress/{aid}','OrderController@parcelDestAddress' );
-Route::get('orders/{id}/parcels/{pid}/customs/{cid}','OrderController@parcelCustom' );
+
+
+Route::resource('orders.parcels', 'ParcelController');
+Route::resource('orders.parcels.address', 'AddressController');
+Route::resource('orders.parcels.customs', 'CustomsController');
+Route::resource('orders.parcels.parcelCheck', 'ParcelCheckController');
+Route::resource('orders.parcels.flight', 'FlightController');
+Route::resource('orders.parcels.deliveryType', 'DeliveryTypeController');
+Route::resource('orders.parcels.parcelType', 'ParcelTypeController');
+Route::resource('orders.customer', 'CustomerController');
 
 
 

@@ -39,38 +39,49 @@ class OrderController extends Controller
 
         return response()->json(null,204);
     }
-    public function parcels($id)
+    public function destroy(Order $order)
     {
-        $parcels = Parcel::all()->where('orderId',$id);
+        $order->delete();
 
-        return $parcels;
-
+        return response()->json(null,204);
     }
-    public function parcelDetail($id, $pid)
-    {
-        $parcel = Parcel::all()
-            ->where('id',$pid);
-        return $parcel;
-    }
-
-    public function parcelDepAddress($id, $pid,$aid)
-    {
-        $depAddress = Address::all()
-            ->where('id',$aid);
-        return $depAddress;
-    }
-
-    public function parcelDestAddress($id, $pid,$aid)
-    {
-        $depAddress = Address::all()
-            ->where('id',$aid);
-        return $depAddress;
-    }
-    public function parcelCustom($id, $pid,$cid)
-    {
-        $custom = Models\Custom::all()
-            ->where('id',$cid);
-        return $custom;
-    }
+//    public function parcels(Order $order)
+//    {
+//        //$parcels = Parcel::all()->where('orderId',$id);
+//
+//        return $order->parcels();
+//
+//    }
+//    public function parcelDetail($id, $pid)
+//    {
+//        $parcel = Parcel::all()
+//            ->where('id',$pid);
+//        return $parcel;
+//    }
+//
+//    public function parcelDepAddress(Order $order, Parcel $parcel)
+//    {
+//
+//        return $parcel->depAddress();
+//    }
+//
+//    public function parcelDestAddress($id, $pid,$aid)
+//    {
+//        $depAddress = Address::all()
+//            ->where('id',$aid);
+//        return $depAddress;
+//    }
+//    public function parcelCustom($id, $pid,$cid)
+//    {
+//        $custom = Models\Custom::all()
+//            ->where('id',$cid);
+//        return $custom;
+//    }
+//    public function parcelChecks($id, $pid)
+//    {
+//        $parcelChecks = Models\ParcelCheck::all()
+//            ->where('id',$pid);
+//        return $parcelChecks;
+//    }
 
 }

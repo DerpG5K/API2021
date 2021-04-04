@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Custom;
+use App\Models\Parcel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,12 +20,13 @@ class CustomTableSeeder extends Seeder
         Custom::truncate();
 
         $faker = \Faker\Factory::create();
-
+        $parcels = Parcel::all()->pluck('id')->toArray();
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 100; $i++) {
 
 
             Custom::create([
+                'parcelId' => $faker->randomElement($parcels),
                 'totalPrice' => $faker->numberBetween(20, 1000),
                 'customName' => $faker->name,
                 'customSize' => $faker->numberBetween(1, 20)
