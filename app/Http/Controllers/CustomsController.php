@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Custom;
+use App\Models\Order;
+use App\Models\Parcel;
 use Illuminate\Http\Request;
 
 class CustomsController extends Controller
 {
-    public function index()
+    public function index(Order $order,Parcel $parcel)
     {
-        return Custom::all();
+        return Custom::all()->where('parcelId',$parcel->getKey());
+
     }
 
-    public function show(Custom $custom)
+    public function show(Order $order,Parcel $parcel,Custom $custom)
     {
         return $custom;
     }
@@ -24,14 +27,14 @@ class CustomsController extends Controller
         return response()->json($custom, 201);
     }
 
-    public function update(Request $request, Custom $custom)
+    public function update(Request $request, Order $order,Parcel $parcel,Custom $custom)
     {
         $custom->update($request->all());
 
         return response()->json($custom, 200);
     }
 
-    public function delete(Custom $custom)
+    public function delete(Order $order,Parcel $parcel,Custom $custom)
     {
         $custom->delete();
 
