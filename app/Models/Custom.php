@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Custom extends Model
 {
-    protected $fillable = ['totalPrice', 'customName', 'customSize', 'timeStamp'];
+    protected $fillable = ['parcelId','totalPrice', 'customName', 'customSize', 'timeStamp'];
 }
