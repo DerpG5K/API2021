@@ -12,4 +12,8 @@ class Order extends Model
     {
         return $this->hasMany(Parcel::class, 'orderId');
     }
+    public function customer()
+    {
+        return $this->hasOne(Customer::class,'id','customerId');
+    }
 }

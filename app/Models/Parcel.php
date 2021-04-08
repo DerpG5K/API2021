@@ -11,6 +11,7 @@ class Parcel extends Model
         'height',
         'width',
         'length',
+        'weight',
         'flightId',
         'depAddressId',
         'priority',
@@ -21,19 +22,37 @@ class Parcel extends Model
         'isAllocated',
         'insurance',
         'orderId',
-        'deliveryTypeId'];
+        'deliveryTypeId',
+        'parcelCheckId'];
 
-//    public function depAdress(){
-//           return $this->hasOne('App\Address');
-//    }
-//    public function arrivalAdress(){
-//           return $this->hasOne('App\Address');
-//    }
-//    public function deliveryType(){
-//           return $this->hasMany('App\DeliveryType');
-//    }
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'id', 'orderId');
+    }
     public function flight() {
-        return $this->hasOne(Flight::class);
+        return $this->hasOne(Flight::class,'id','flightId');
+    }
+    public function destAddress() {
+        return $this->hasOne(Address::class,'id','destAddressId');
+    }
+    public function depAddress() {
+        return $this->hasOne(Address::class,'id','depAddressId');
+    }
+    public function custom() {
+        //return $this->belongsTo(Custom::class, 'parcelId');
+        return $this->belongsTo(Custom::class);
+    }
+    public function deliveryType() {
+        return $this->hasOne(DeliveryType::class,'id','deliveryTypeId');
+    }
+    public function parcelCheck()
+    {
+        return $this->belongsTo(ParcelCheck::class, 'id', 'parcelId');
+        //return $this->belongsTo(ParcelCheck::class, 'id', 'parcelCheckId');
+    }
+    public function parcelType()
+    {
+        return $this->hasOne(ParcelType::class, 'id', 'parcelTypeId');
     }
 }
