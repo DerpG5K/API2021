@@ -48,6 +48,7 @@ Route::resource('ticket_states', 'TicketStateController', ['except' => ['create'
 
 Route::resource('Employees','EmployeeController', ['except' => ['create', 'edit']]);
 Route::resource('Absences','AbsenceController', ['except' => ['create', 'edit']]);
+Route::resource('Benefits', 'BenefitController', ['except' => ['create', 'edit']]);
 Route::resource('Jobs', 'JobController', ['except' => ['create', 'edit']]);
 Route::resource('JobDescriptions', 'JobDescriptionController', ['except' => ['create', 'edit']]);
 Route::resource('JobOffers', 'JobOfferController', ['except' => ['create', 'edit']]);
