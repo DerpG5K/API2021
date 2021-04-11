@@ -36,3 +36,13 @@ Route::resource('orders.parcels.flight', 'FlightController');
 Route::resource('orders.parcels.deliveryType', 'DeliveryTypeController');
 Route::resource('orders.parcels.parcelType', 'ParcelTypeController');
 Route::resource('orders.customer', 'CustomerController');
+
+Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
+Route::resource('businesses', 'BusinessController', ['except' => ['create', 'edit']]);
+Route::resource('customers', 'CustomerController', ['except' => ['create', 'edit']]);
+Route::resource('tickets', 'TicketController', ['except' => ['create', 'edit']]);
+Route::resource('ticket_categories', 'TicketCategoryController', ['except' => ['create', 'edit']]);
+Route::resource('ticket_files', 'TicketFileController', ['except' => ['create', 'edit']]);
+Route::resource('ticket_logs', 'TicketLogController', ['except' => ['create', 'edit']]);
+Route::resource('ticket_states', 'TicketStateController', ['except' => ['create', 'edit']]);
+
