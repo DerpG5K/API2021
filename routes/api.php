@@ -46,3 +46,9 @@ Route::resource('ticket_files', 'TicketFileController', ['except' => ['create', 
 Route::resource('ticket_logs', 'TicketLogController', ['except' => ['create', 'edit']]);
 Route::resource('ticket_states', 'TicketStateController', ['except' => ['create', 'edit']]);
 
+Route::resource('Employees','EmployeeController', ['except' => ['create', 'edit']]);
+Route::resource('Absences','AbsenceController', ['except' => ['create', 'edit']]);
+Route::resource('Jobs', 'JobController', ['except' => ['create', 'edit']]);
+Route::resource('JobDescriptions', 'JobDescriptionController', ['except' => ['create', 'edit']]);
+Route::resource('JobOffers', 'JobOfferController', ['except' => ['create', 'edit']]);
+Route::resource('Departments', 'DepartmentController', ['except' => ['create', 'edit']]);
