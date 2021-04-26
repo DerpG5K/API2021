@@ -37,7 +37,7 @@ class ParcelTableSeeder extends Seeder
 
             Parcel::create([
                 'orderId' => $faker->randomElement($orders),
-                'trackingNumber' => $faker->text(50),
+                'trackingNumber' => 'ABC'.$faker->randomNumber(9, true).$i,
                 'insurance' => $faker->boolean(50),
                 'weight' => $faker->numberBetween(1, 100),
                 'height' => $faker->numberBetween(1, 100),
