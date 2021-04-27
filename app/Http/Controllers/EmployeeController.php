@@ -7,9 +7,28 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Employee::all();
+        if ($request->has('mail') && $request->get('mail')!==''){
+            //get request key: mail
+            $searchMail=$request->get('mail');
+            //get results by filtering on key
+            $employees = Employee::where('employeeMailAddress','LIKE','%'.$searchMail.'%')->get();
+            //if there is a result
+            if (count($employees)>0){
+                //return found results
+                return $employees;
+            }
+            else{
+                //if the result is empty
+                return 'not found';
+            }
+        }
+        //in all other cases return ALL
+        else{
+            return Employee::all();
+
+        }
     }
 
     public function show(Employee $employee)
