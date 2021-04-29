@@ -41,7 +41,7 @@ class Parcel extends Model
     }
     public function custom() {
         //return $this->belongsTo(Custom::class, 'parcelId');
-        return $this->belongsTo(Custom::class);
+        return $this->belongsTo(Custom::class,'id','id');
     }
     public function deliveryType() {
         return $this->hasOne(DeliveryType::class,'id','deliveryTypeId');

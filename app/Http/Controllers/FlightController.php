@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Flight;
 use App\Models\Order;
 use App\Models\Parcel;
+use App\Models\Shipment;
 use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
-    public function index(Order $order, Parcel $parcel)
+    public function index(Order $order, Shipment $shipment,Parcel $parcel)
     {
         return $parcel->flight()->get();
     }
 
-    public function show(Order $order, Parcel $parcel,Flight $flight)
+    public function show(Order $order, Shipment $shipment,Parcel $parcel,Flight $flight)
     {
         return $flight;
     }
@@ -26,14 +27,14 @@ class FlightController extends Controller
         return response()->json($flight, 201);
     }
 
-    public function update(Request $request, Order $order, Parcel $parcel,Flight $flight)
+    public function update(Request $request, Order $order, Shipment $shipment,Parcel $parcel,Flight $flight)
     {
         $flight->update($request->all());
 
         return response()->json($flight, 200);
     }
 
-    public function delete(Order $order, Parcel $parcel,Flight $flight)
+    public function delete(Order $order, Shipment $shipment,Parcel $parcel,Flight $flight)
     {
         $flight->delete();
 

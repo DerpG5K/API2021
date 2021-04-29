@@ -22,7 +22,7 @@ class EmployeeTableSeeder extends Seeder
 
         $faker = \Faker\Factory::create();
 
-        for ($I1 = 0; $I1 < 100; $I1++){
+        for ($I1 = 0; $I1 < 500; $I1++){
             Employee::create([
                 'employeeFirstName' => $faker->firstName,
                 'employeeLastName' => $faker->lastName,
