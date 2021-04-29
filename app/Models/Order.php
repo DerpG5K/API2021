@@ -8,9 +8,9 @@ class Order extends Model
 {
     protected $fillable = ['customerId', 'totalPrice', 'isPaid', 'extraInfo'];
 
-    public function parcels()
+    public function shipments()
     {
-        return $this->hasMany(Parcel::class, 'orderId');
+        return $this->hasMany(Shipment::class, 'orderId');
     }
     public function customer()
     {

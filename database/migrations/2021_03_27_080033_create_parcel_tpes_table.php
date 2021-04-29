@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParcelTypesTable extends Migration
+class CreateParcelTpesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateParcelTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('parcel_types', function (Blueprint $table) {
+        Schema::create('parcel_tpes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('typeName');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateParcelTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parcel_types');
+        Schema::dropIfExists('parcel_tpes');
     }
 }

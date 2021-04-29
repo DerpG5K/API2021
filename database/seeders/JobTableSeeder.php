@@ -17,7 +17,7 @@ class JobTableSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Job::truncate();
-            
+
         $faker = \Faker\Factory::create();
 
         for ($I1 = 0; $I1 < 100; $I1++){
@@ -27,14 +27,13 @@ class JobTableSeeder extends Seeder
                 'available' => $faker->boolean,
                 'description' => $faker->randomNumber(5),
                 //'hours',
-                'pricePerHours' => $faker->randomFloat($nbMaxDecimals = 2, $min = 8, $max = 20)
+                'pricePerHour' => $faker->randomFloat($nbMaxDecimals = 2, $min = 8, $max = 20)
             ]);
         }
 
-        
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
 
 
-        

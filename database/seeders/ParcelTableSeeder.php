@@ -8,7 +8,8 @@ use App\Models\DeliveryType;
 use App\Models\Flight;
 use App\Models\Order;
 use App\Models\Parcel;
-use App\Models\ParcelType;
+use App\Models\ParcelTpe;
+use App\Models\Shipment;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,19 +26,19 @@ class ParcelTableSeeder extends Seeder
         Parcel::truncate();
 
         $faker = \Faker\Factory::create();
-        $orders = Order::all()->pluck('id')->toArray();
+        $shipments = Shipment::all()->pluck('id')->toArray();
         $flights = Flight::all()->pluck('id')->toArray();
         $addresses = Address::all()->pluck('id')->toArray();
         $deliveryTypes = DeliveryType::all()->pluck('id')->toArray();
-        $parcelType = ParcelType::all()->pluck('id')->toArray();
+        $parcelType = ParcelTpe::all()->pluck('id')->toArray();
 
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 500; $i++) {
 
 
             Parcel::create([
-                'orderId' => $faker->randomElement($orders),
-                'trackingNumber' => $faker->text(50),
+                'shipmentId' => $faker->randomElement($shipments),
+                'trackingNumber' => 'ABC'.$faker->randomNumber(9, true).$i,
                 'insurance' => $faker->boolean(50),
                 'weight' => $faker->numberBetween(1, 100),
                 'height' => $faker->numberBetween(1, 100),

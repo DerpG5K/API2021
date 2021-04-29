@@ -7,10 +7,30 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Customer::all();
+        if ($request->has('email') && $request->get('email')!==''){
+            //get request key: mail
+            $searchEmail=$request->get('email');
+            //get results by filtering on key
+            $customers = Customer::where('email','LIKE','%'.$searchEmail.'%')->get();
+            //if there is a result
+            if (count($customers)>0){
+                //return found results
+                return $customers;
+            }
+            else{
+                //if the result is empty
+                return 'not found';
+            }
+        }
+        //in all other cases return ALL
+        else{
+            return Customer::all();
+
+        }
     }
+
 
     public function show(Customer $customer)
     {
