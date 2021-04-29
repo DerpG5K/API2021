@@ -27,15 +27,22 @@ Route::resource('delivery_types', 'DeliveryTypeController', ['except' => ['creat
 Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_checks', 'ParcelCheckController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_types', 'ParcelTypeController', ['except' => ['create', 'edit']]);
+Route::resource('parcel_tpes', 'ParcelTpeController', ['except' => ['create', 'edit']]);
+Route::resource('shipments', 'ShipmentController', ['except' => ['create', 'edit']]);
+Route::resource('status', 'StatusController', ['except' => ['create', 'edit']]);
 
-Route::resource('orders.parcels', 'ParcelController');
-Route::resource('orders.parcels.address', 'AddressController');
-Route::resource('orders.parcels.customs', 'CustomsController');
-Route::resource('orders.parcels.parcelCheck', 'ParcelCheckController');
-Route::resource('orders.parcels.flight', 'FlightController');
-Route::resource('orders.parcels.deliveryType', 'DeliveryTypeController');
-Route::resource('orders.parcels.parcelType', 'ParcelTypeController');
-Route::resource('orders.customer', 'CustomerController');
+
+Route::resource('orders.shipments', 'ShipmentController');
+Route::resource('orders.shipments.status', 'StatusController');
+Route::resource('orders.shipments.parcels', 'ParcelController');
+Route::resource('orders.shipments.parcels.address', 'AddressController');
+Route::resource('orders.shipments.parcels.customs', 'CustomsController');
+Route::resource('orders.shipments.parcels.parcelCheck', 'ParcelCheckController');
+Route::resource('orders.shipments.parcels.flight', 'FlightController');
+Route::resource('orders.shipments.parcels.deliveryType', 'DeliveryTypeController');
+Route::resource('orders.shipments.parcels.parcelTpe', 'ParcelTpeController');
+Route::resource('orders.shipments.parcels.parcelType', 'ParcelTpeController');
+Route::resource('orders.shipments.customer', 'CustomerController');
 
 Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
 Route::resource('businesses', 'BusinessController', ['except' => ['create', 'edit']]);

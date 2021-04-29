@@ -21,14 +21,14 @@ class Parcel extends Model
         'arrivalTimeStamp',
         'isAllocated',
         'insurance',
-        'orderId',
+        'shipmentId',
         'deliveryTypeId',
         'parcelCheckId'];
 
 
-    public function order()
+    public function shipment()
     {
-        return $this->belongsTo(Order::class, 'id', 'orderId');
+        return $this->belongsTo(Shipment::class, 'id', 'shipmentId');
     }
     public function flight() {
         return $this->hasOne(Flight::class,'id','flightId');
@@ -49,7 +49,10 @@ class Parcel extends Model
     public function parcelCheck()
     {
         return $this->belongsTo(ParcelCheck::class, 'id', 'parcelId');
-        //return $this->belongsTo(ParcelCheck::class, 'id', 'parcelCheckId');
+    }
+    public function parcelTpe()
+    {
+        return $this->hasOne(ParcelTpe::class, 'id', 'parcelTpeId');
     }
     public function parcelType()
     {

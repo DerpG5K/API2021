@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Parcel;
+use App\Models\Shipment;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Empty_;
 use function Psy\debug;
 
 class ParcelController extends Controller
 {
-    public function index(Request $request,Order $order)
+    public function index(Request $request,Order $order,Shipment $shipment)
     {
         if ($request->has('searchTrackingNumber') && $request->get('searchTrackingNumber')!==''){
             //get request key: searchTrackingNumber
@@ -29,8 +30,8 @@ class ParcelController extends Controller
         }
         //check if the order value was passed, if so act accordingly to return result
 
-        elseif(!empty($order->toArray())){
-            return $order->parcels()->get();
+        elseif(!empty($shipment->toArray())){
+            return $shipment->parcels()->get();
 
         }
         //in all other cases return ALL
@@ -40,7 +41,7 @@ class ParcelController extends Controller
         }
     }
 
-    public function show(Order $order,Parcel $parcel)
+    public function show(Order $order,Shipment $shipment,Parcel $parcel)
     {
         return $parcel;
     }
@@ -52,7 +53,7 @@ class ParcelController extends Controller
         return response()->json($parcel, 201);
     }
 
-    public function update(Request $request, Order $order,Parcel $parcel)
+    public function update(Request $request, Order $order,Shipment $shipment,Parcel $parcel)
     {
         $parcel->update($request->all());
 
@@ -65,7 +66,7 @@ class ParcelController extends Controller
 //
 //        return response()->json(null,204);
 //    }
-    public function destroy(Order $order,Parcel $parcel)
+    public function destroy(Order $order,Shipment $shipment,Parcel $parcel)
     {
         $old = $parcel->toArray();
         $parcel->delete();
