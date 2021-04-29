@@ -47,7 +47,13 @@ Route::resource('orders.shipments.customer', 'CustomerController');
 Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
 Route::resource('businesses', 'BusinessController', ['except' => ['create', 'edit']]);
 Route::resource('customers', 'CustomerController', ['except' => ['create', 'edit']]);
+
 Route::resource('tickets', 'TicketController', ['except' => ['create', 'edit']]);
+Route::resource('tickets.ticket_categories', 'TicketCategoryController', ['except' => ['create', 'edit']]);
+Route::resource('tickets.ticket_files', 'TicketFileController', ['except' => ['create', 'edit']]);
+Route::resource('tickets.ticket_logs', 'TicketLogController', ['except' => ['create', 'edit']]);
+Route::resource('tickets.ticket_states', 'TicketStateController', ['except' => ['create', 'edit']]);
+
 Route::resource('ticket_categories', 'TicketCategoryController', ['except' => ['create', 'edit']]);
 Route::resource('ticket_files', 'TicketFileController', ['except' => ['create', 'edit']]);
 Route::resource('ticket_logs', 'TicketLogController', ['except' => ['create', 'edit']]);

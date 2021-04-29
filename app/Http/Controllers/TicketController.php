@@ -9,7 +9,7 @@ class TicketController extends Controller
 {
     public function index()
     {
-        return Ticket::all();
+            return Ticket::all();
     }
 
     public function show(Ticket $ticket)
@@ -31,7 +31,7 @@ class TicketController extends Controller
         return response()->json($ticket, 200);
     }
 
-    public function delete(Ticket $ticket)
+    public function destroy(Ticket $ticket)
     {
         $ticket->delete();
 

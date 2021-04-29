@@ -10,16 +10,14 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'subject',
         'description',
         'priority',
         'startDate',
         'endDate',
-        'created_at',  // Default timestamp fields
-        'updated_at',
         'lockedUntil',
-        'lockedBy',
+        'lockedById',
+        'assignedEmployeeId',
         'categoryId',
         'stateId',
         'userId',
@@ -44,5 +42,9 @@ class Ticket extends Model
     public function logs()
     {
         return $this->hasMany(TicketLog::class, 'ticketId');
+    }
+    public function lockedBy()
+    {
+        return $this->hasOne(Employee::class, 'lockedById');
     }
 }

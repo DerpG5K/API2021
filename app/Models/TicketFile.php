@@ -10,19 +10,17 @@ class TicketFile extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'fileSource',
         'fileName',
         'fileType',
         'fileSize',
-        'timestamp',
         'ticketId',
         'userId',
         'isCustomer'
     ];
 
-    public function ticket()
-    {
-        return $this->belongsTo(Ticket::class, 'ticketId');
-    }
+//    public function ticket()
+//    {
+//        return $this->belongsTo(Ticket::class, 'ticketId');
+//    }
 }

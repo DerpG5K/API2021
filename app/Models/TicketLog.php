@@ -10,18 +10,16 @@ class TicketLog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'timestamp',
+
         'description',
         'logType',
-        'lastChanged',
         'ticketId',
         'userId',
         'isCustomer'
     ];
 
-    public function ticket()
-    {
-        return $this->belongsTo(Ticket::class, 'ticketId');
-    }
+//    public function ticket()
+//    {
+//        return $this->belongsTo(Ticket::class, 'ticketId');
+//    }
 }

@@ -10,12 +10,11 @@ class TicketState extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'stateName'
     ];
 
-    public function tickets()
-    {
-        return $this->hasMany(Ticket::class, 'ticketStateId');
-    }
+//    public function tickets()
+//    {
+//        return $this->hasMany(Ticket::class, 'ticketStateId');
+//    }
 }

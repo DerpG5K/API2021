@@ -14,8 +14,8 @@ class CreateAbsencesTable extends Migration
     public function up()
     {
         Schema::create('absences', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('employeeID');
+            $table->increments('id');
+            $table->integer('employeeID')->unsigned()->nullable();
             $table->dateTime('startDate');
             $table->dateTime('endDate');
             $table->string('reason');

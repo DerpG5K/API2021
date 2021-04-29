@@ -15,54 +15,53 @@ class CreateTicketTables extends Migration
     {
         // CREATES TABLES
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('subject');
             $table->text('description');
-            $table->string('priority');
+            $table->integer('priority');
             $table->dateTime('startDate')->nullable();
             $table->dateTime('endDate')->nullable();
             $table->dateTime('lockedUntil')->nullable();
-            $table->string('lockedBy')->nullable();
-            $table->unsignedBigInteger('categoryId')->nullable();
-            $table->unsignedBigInteger('stateId');
-            $table->unsignedBigInteger('userId');
+            $table->integer('lockedById')->unsigned()->nullable();
+            $table->integer('categoryId')->unsigned()->nullable();
+            $table->integer('assignedEmployeeId')->unsigned()->nullable();
+            $table->integer('stateId')->unsigned()->nullable();
+            $table->integer('userId')->unsigned()->nullable();
             $table->boolean('isCustomer')->default(false);
+            $table->string('lockedBy');
             $table->timestamps();
         });
 
         Schema::create('ticket_categories', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('categoryName');
             $table->timestamps();
         });
 
         Schema::create('ticket_states', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('stateName');
             $table->timestamps();
         });
 
         Schema::create('ticket_files', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('fileSource');
             $table->string('fileName');
             $table->string('fileType');
             $table->unsignedBigInteger('fileSize');
-            $table->dateTime('timestamp');
-            $table->unsignedBigInteger('ticketId');
-            $table->unsignedBigInteger('userId');
+            $table->integer('ticketId')->unsigned()->nullable();
+            $table->integer('userId')->unsigned()->nullable();
             $table->boolean('isCustomer')->default(false);
             $table->timestamps();
         });
 
         Schema::create('ticket_logs', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('timestamp');
+            $table->increments('id');
             $table->string('description');
             $table->string('logType');
-            $table->dateTime('lastChanged');
-            $table->unsignedBigInteger('ticketId');
-            $table->unsignedBigInteger('userId');
+            $table->integer('ticketId')->unsigned()->nullable();
+            $table->integer('userId')->unsigned()->nullable();
             $table->boolean('isCustomer')->default(false);
             $table->timestamps();
         });
@@ -73,16 +72,21 @@ class CreateTicketTables extends Migration
             $table->engine = 'InnoDB';
             $table->foreign('categoryId')->references('id')->on('ticket_categories');
             $table->foreign('stateId')->references('id')->on('ticket_states');
+            $table->foreign('assignedEmployeeId')->references('id')->on('employees');
+            $table->foreign('userId')->references('id')->on('customers');
         });
 
         Schema::table('ticket_files', function ($table) {
             $table->engine = 'InnoDB';
             $table->foreign('ticketId')->references('id')->on('tickets');
+            $table->foreign('userId')->references('id')->on('customers');
         });
 
         Schema::table('ticket_logs', function ($table) {
             $table->engine = 'InnoDB';
             $table->foreign('ticketId')->references('id')->on('tickets');
+            $table->foreign('userId')->references('id')->on('customers');
+
         });
 
         // CAN'T CREATE A FK CONSTRAINT ON USERID BECAUSE IT CAN REFERENCE EITHER ONE OF TWO TABLES

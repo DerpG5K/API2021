@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
 use App\Models\TicketState;
 use Illuminate\Http\Request;
 
 class TicketStateController extends Controller
 {
-    public function index()
+    public function index(Ticket $ticket)
     {
-        return TicketState::all();
+        //check if the order value was passed, if so act accordingly to return result
+        if(!empty($ticket->toArray())){
+            return $ticket->status()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return TicketState::all();
+        }
     }
 
-    public function show(TicketState $ticketState)
+    public function show(Ticket $ticket,TicketState $ticketState)
     {
         return $ticketState;
     }
@@ -24,14 +32,14 @@ class TicketStateController extends Controller
         return response()->json($ticketState, 201);
     }
 
-    public function update(Request $request, TicketState $ticketState)
+    public function update(Request $request, Ticket $ticket,TicketState $ticketState)
     {
         $ticketState->update($request->all());
 
         return response()->json($ticketState, 200);
     }
 
-    public function delete(TicketState $ticketState)
+    public function destroy(Ticket $ticket,TicketState $ticketState)
     {
         $ticketState->delete();
 

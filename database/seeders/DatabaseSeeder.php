@@ -31,9 +31,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TicketCategoryTableSeeder::class);
         $this->call(TicketStateTableSeeder::class);
-        $this->call(TicketTablesSeeder::class);
-        $this->call(TicketFileTableSeeder::class);
         $this->call(TicketLogTableSeeder::class);
+        $this->call(TicketTableSeeder::class);
+        $this->call(TicketFileTableSeeder::class);
+        $this->call(TicketTableSeeder::class);
+
+
         //$this->call(PasswordTablesSeeder::class);
         $this->call(EmployeeTableSeeder::class);
         $this->call(AbsencesTableSeeder::class);
