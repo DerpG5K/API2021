@@ -33,6 +33,8 @@ class TicketController extends Controller
 
     public function destroy(Ticket $ticket)
     {
+        $ticket->files()->delete();
+        $ticket->logs()->delete();
         $ticket->delete();
 
         return response()->json(null,204);

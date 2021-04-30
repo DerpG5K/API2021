@@ -12,7 +12,15 @@ class ParcelCheckController extends Controller
 {
     public function index(Order $order,Shipment $shipment, Parcel $parcel)
     {
-        return ParcelCheck::all()->where('parcelId',$parcel->getKey());
+        //check if the Parcel value was passed, if so act accordingly to return result
+
+        if(!empty($parcel->toArray())){
+            return $parcel->parcelCheck()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return ParcelCheck::all();
+        }
     }
 
     public function show(Order $order,Shipment $shipment,Parcel $parcel,ParcelCheck $parcelCheck)
@@ -34,7 +42,7 @@ class ParcelCheckController extends Controller
         return response()->json($parcelCheck, 200);
     }
 
-    public function delete(Order $order,Shipment $shipment, Parcel $parcel,ParcelCheck $parcelCheck)
+    public function destroy(Order $order,Shipment $shipment, Parcel $parcel,ParcelCheck $parcelCheck)
     {
         $parcelCheck->delete();
 

@@ -23,7 +23,7 @@ class Parcel extends Model
         'insurance',
         'shipmentId',
         'deliveryTypeId',
-        'parcelCheckId'];
+        ];
 
 
     public function shipment()

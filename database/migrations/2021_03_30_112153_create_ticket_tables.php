@@ -28,7 +28,6 @@ class CreateTicketTables extends Migration
             $table->integer('stateId')->unsigned()->nullable();
             $table->integer('userId')->unsigned()->nullable();
             $table->boolean('isCustomer')->default(false);
-            $table->string('lockedBy');
             $table->timestamps();
         });
 
@@ -72,7 +71,10 @@ class CreateTicketTables extends Migration
             $table->engine = 'InnoDB';
             $table->foreign('categoryId')->references('id')->on('ticket_categories');
             $table->foreign('stateId')->references('id')->on('ticket_states');
+
             $table->foreign('assignedEmployeeId')->references('id')->on('employees');
+            $table->foreign('lockedById')->references('id')->on('employees');
+
             $table->foreign('userId')->references('id')->on('customers');
         });
 

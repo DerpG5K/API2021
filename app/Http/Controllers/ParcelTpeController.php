@@ -12,7 +12,15 @@ class ParcelTpeController extends Controller
 {
     public function index(Order $order, Shipment $shipment,Parcel $parcel)
     {
-        return $parcel->parcelTpe()->get();
+        //check if the Parcel value was passed, if so act accordingly to return result
+
+        if(!empty($parcel->toArray())){
+            return $parcel->parcelTpe()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return ParcelTpe::all();
+        }
     }
 
     public function show(Order $order, Shipment $shipment,Parcel $parcel, ParcelTpe $parcelTpe)

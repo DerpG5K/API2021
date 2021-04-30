@@ -41,7 +41,7 @@ class CreateParcelTable extends Migration
         Schema::table('parcels', function ($table) {
             $table->engine = 'InnoDB';
             $table->foreign('flightId')->references('id')->on('flights');
-            $table->foreign('shipmentId')->references('id')->on('shipments');
+            $table->foreign('shipmentId')->references('id')->on('shipments')->onDelete('cascade');;
             $table->foreign('depAddressId')->references('id')->on('addresses');
             $table->foreign('destAddressId')->references('id')->on('addresses');
             //$table->foreign('customsId')->references('id')->on('customs');

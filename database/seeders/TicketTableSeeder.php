@@ -35,7 +35,8 @@ class TicketTableSeeder extends Seeder
                 'startDate' => $faker->dateTime('now'),
                 'endDate' => $faker->dateTime('now'),
                 'lockedUntil' => $faker->dateTime('now'),
-                'lockedBy' => $faker->email
+                'lockedById' => $faker->randomElement($employees),
+
             ]);
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

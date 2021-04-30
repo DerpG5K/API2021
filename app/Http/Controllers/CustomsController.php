@@ -16,8 +16,6 @@ class CustomsController extends Controller
 
         if(!empty($parcel->toArray())){
             return $parcel->custom()->get();
-            //return Custom::all()->where('parcelId',$parcel->getKey());
-
         }
         //in all other cases return ALL
         else{

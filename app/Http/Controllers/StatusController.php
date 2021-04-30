@@ -13,7 +13,15 @@ class StatusController extends Controller
 {
     public function index(Order $order,Shipment $shipment)
     {
-        return $shipment->status()->get();
+        //check if the Parcel value was passed, if so act accordingly to return result
+
+        if(!empty($shipment->toArray())){
+            return $shipment->status()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return Status::all();
+        }
     }
 
     public function show(Order $order, Shipment $shipment, Status $status)

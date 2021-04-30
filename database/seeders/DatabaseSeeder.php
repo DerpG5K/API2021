@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ParcelCheckTableSeeder::class);
         $this->call(CustomTableSeeder::class);
         $this->call(BusinessTableSeeder::class);
+        $this->call(EmployeeTableSeeder::class);
 
         $this->call(TicketCategoryTableSeeder::class);
         $this->call(TicketStateTableSeeder::class);
@@ -38,7 +39,6 @@ class DatabaseSeeder extends Seeder
 
 
         //$this->call(PasswordTablesSeeder::class);
-        $this->call(EmployeeTableSeeder::class);
         $this->call(AbsencesTableSeeder::class);
         $this->call(BenefitsTableSeeder::class);
         $this->call(JobTableSeeder::class);

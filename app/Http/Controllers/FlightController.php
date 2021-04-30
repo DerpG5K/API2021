@@ -12,7 +12,15 @@ class FlightController extends Controller
 {
     public function index(Order $order, Shipment $shipment,Parcel $parcel)
     {
-        return $parcel->flight()->get();
+        //check if the Parcel value was passed, if so act accordingly to return result
+
+        if(!empty($parcel->toArray())){
+            return $parcel->flight()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return Flight::all();
+        }
     }
 
     public function show(Order $order, Shipment $shipment,Parcel $parcel,Flight $flight)

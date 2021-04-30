@@ -69,6 +69,9 @@ class ParcelController extends Controller
     public function destroy(Order $order,Shipment $shipment,Parcel $parcel)
     {
         $old = $parcel->toArray();
+
+        $parcel->custom()->delete();
+        $parcel->parcelCheck()->delete();
         $parcel->delete();
 
         return response()->json(null,204);

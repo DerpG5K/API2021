@@ -28,7 +28,7 @@ class EmployeeTableSeeder extends Seeder
                 'employeeLastName' => $faker->lastName,
                 'employeeMailAddress' => $faker->email,
                 'employeePhoneNumber' => $faker->numerify('+32 ########'),
-                'employeePassword' => bcrypt($faker->password),
+                'employeePassword' => $faker->password,
                 'employeeSalary' => $faker->numberBetween($min = 1000, $max = 5000),
                 'employeeJobID' => $faker->randomNumber(5),
                 'employeeBirthDate' => $faker->dateTimeBetween($startDate = '-70 years', $endDate = '-30 years', $timezone = null),

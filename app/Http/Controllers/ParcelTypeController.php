@@ -13,7 +13,15 @@ class ParcelTypeController extends Controller
 {
     public function index(Order $order,Shipment $shipment,Parcel $parcel)
     {
-        return $parcel->parcelType()->get();
+        //check if the Parcel value was passed, if so act accordingly to return result
+
+        if(!empty($parcel->toArray())){
+            return $parcel->parcelType()->get();
+        }
+        //in all other cases return ALL
+        else{
+            return ParcelType::all();
+        }
     }
 
     public function show(Order $order, Shipment $shipment, Parcel $parcel, ParcelType $parcelType)

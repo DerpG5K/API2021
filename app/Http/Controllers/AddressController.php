@@ -43,8 +43,9 @@ class AddressController extends Controller
         return response()->json($address, 200);
     }
 
-    public function delete(Order $order,Shipment $shipment,Parcel $parcel,Address $address)
+    public function destroy(Order $order,Shipment $shipment,Parcel $parcel,Address $address)
     {
+
         $address->delete();
 
         return response()->json(null,204);
