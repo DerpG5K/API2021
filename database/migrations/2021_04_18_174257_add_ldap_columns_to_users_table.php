@@ -11,7 +11,7 @@ class AddLdapColumnsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('employee_creds', function (Blueprint $table) {
             $table->string('guid')->unique()->nullable();
             $table->string('domain')->nullable();
         });
@@ -22,7 +22,7 @@ class AddLdapColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('employee_creds', function (Blueprint $table) {
             $table->dropColumn(['guid', 'domain']);
         });
     }
