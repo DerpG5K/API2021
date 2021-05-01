@@ -33,13 +33,12 @@ Route::resource('status', 'StatusController', ['except' => ['create', 'edit']]);
 
 Route::resource('orders.shipments', 'ShipmentController');
 Route::resource('orders.shipments.status', 'StatusController');
+Route::resource('orders.shipments.addresses', 'AddressController');
+Route::resource('orders.shipments.delivery_types', 'DeliveryTypeController');
 Route::resource('orders.shipments.parcels', 'ParcelController');
-Route::resource('orders.shipments.parcels.addresses', 'AddressController');
 Route::resource('orders.shipments.parcels.customs', 'CustomsController');
 Route::resource('orders.shipments.parcels.parcel_checks', 'ParcelCheckController');
 Route::resource('orders.shipments.parcels.flights', 'FlightController');
-Route::resource('orders.shipments.parcels.delivery_types', 'DeliveryTypeController');
-Route::resource('orders.shipments.parcels.parcel_tpes', 'ParcelTpeController');
 Route::resource('orders.shipments.parcels.parcel_types', 'ParcelTypeController');
 Route::resource('orders.customer', 'CustomerController');
 

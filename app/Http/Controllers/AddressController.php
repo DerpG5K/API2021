@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
-    public function index(Order $order,  Shipment $shipment,Parcel $parcel)
+    public function index(Order $order,  Shipment $shipment)
     {
-        if(!empty($parcel->toArray())){
+        if(!empty($shipment->toArray())){
             $result = [
-                $parcel->depAddress()->get(),
-                $parcel->destAddress()->get()
+                $shipment->depAddress()->get(),
+                $shipment->destAddress()->get()
                 ];
             return $result;
         }
@@ -24,7 +24,7 @@ class AddressController extends Controller
         }
     }
 
-    public function show(Order $order,Shipment $shipment,Parcel $parcel,Address $address)
+    public function show(Order $order,Shipment $shipment,Address $address)
     {
         return $address;
     }
@@ -36,14 +36,14 @@ class AddressController extends Controller
         return response()->json($address, 201);
     }
 
-    public function update(Request $request, Order $order,Shipment $shipment,Parcel $parcel,Address $address)
+    public function update(Request $request, Order $order,Shipment $shipment,Address $address)
     {
         $address->update($request->all());
 
         return response()->json($address, 200);
     }
 
-    public function destroy(Order $order,Shipment $shipment,Parcel $parcel,Address $address)
+    public function destroy(Order $order,Shipment $shipment,Address $address)
     {
 
         $address->delete();

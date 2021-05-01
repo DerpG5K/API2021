@@ -11,12 +11,12 @@ use Illuminate\Http\Request;
 
 class DeliveryTypeController extends Controller
 {
-    public function index(Order $order, Shipment $shipment,Parcel $parcel)
+    public function index(Order $order, Shipment $shipment)
     {
         //check if the Parcel value was passed, if so act accordingly to return result
 
-        if(!empty($parcel->toArray())){
-            return $parcel->deliveryType()->get();
+        if(!empty($shipment->toArray())){
+            return $shipment->deliveryType()->get();
         }
         //in all other cases return ALL
         else{
