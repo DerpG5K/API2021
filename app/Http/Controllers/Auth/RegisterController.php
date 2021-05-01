@@ -32,6 +32,7 @@ class RegisterController extends Controller
      * @var string
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/Success';
 
     /**
      * Create a new controller instance.
@@ -74,10 +75,5 @@ class RegisterController extends Controller
     }
 
 
-    protected function registered(Request $request, $user)
-    {
-        $user->generateToken();
 
-        return response()->json(['data' => $user->toArray()], 201);
-    }
 }
