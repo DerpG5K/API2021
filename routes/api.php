@@ -27,7 +27,6 @@ Route::resource('delivery_types', 'DeliveryTypeController', ['except' => ['creat
 Route::resource('orders', 'OrderController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_checks', 'ParcelCheckController', ['except' => ['create', 'edit']]);
 Route::resource('parcel_types', 'ParcelTypeController', ['except' => ['create', 'edit']]);
-Route::resource('parcel_tpes', 'ParcelTpeController', ['except' => ['create', 'edit']]);
 Route::resource('shipments', 'ShipmentController', ['except' => ['create', 'edit']]);
 Route::resource('status', 'StatusController', ['except' => ['create', 'edit']]);
 
@@ -42,7 +41,7 @@ Route::resource('orders.shipments.parcels.flights', 'FlightController');
 Route::resource('orders.shipments.parcels.delivery_types', 'DeliveryTypeController');
 Route::resource('orders.shipments.parcels.parcel_tpes', 'ParcelTpeController');
 Route::resource('orders.shipments.parcels.parcel_types', 'ParcelTypeController');
-Route::resource('orders.shipments.customer', 'CustomerController');
+Route::resource('orders.customer', 'CustomerController');
 
 Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
 Route::resource('businesses', 'BusinessController', ['except' => ['create', 'edit']]);

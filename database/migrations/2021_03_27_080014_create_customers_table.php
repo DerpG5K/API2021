@@ -19,14 +19,18 @@ class CreateCustomersTable extends Migration
             $table->string('firstName')->nullable();
             $table->string('lastName')->nullable();
             $table->string('phoneNumber')->nullable();
-            $table->string('type')->nullable();
             $table->bigInteger('businessId')->unsigned()->nullable();
+            $table->integer('addressId')->unsigned()->nullable();
+
+
             $table->timestamps();
         });
 
         Schema::table('customers', function ($table) {
             $table->engine = 'InnoDB';
             $table->foreign('businessId')->references('id')->on('businesses');
+            $table->foreign('addressId')->references('id')->on('addresses');
+
 
         });
     }

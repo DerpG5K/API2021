@@ -14,8 +14,13 @@ class TicketCategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        TicketCategory::create(['categoryName' => "Category 1"]);
-        TicketCategory::create(['categoryName' => "Category 2"]);
-        TicketCategory::create(['categoryName' => "Category 3"]);
+        TicketCategory::create(['categoryName' => "Order"]);
+        TicketCategory::create(['categoryName' => "Account"]);
+
+        TicketCategory::create(['categoryName' => "New feature"]);
+        TicketCategory::create(['categoryName' => "Payment"]);
+        TicketCategory::create(['categoryName' => "Tracking"]);
+        TicketCategory::create(['categoryName' => "Infrastructure"]);
+
     }
 }

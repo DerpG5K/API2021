@@ -13,7 +13,7 @@ class EmployeeController extends Controller
             //get request key: mail
             $searchMail=$request->get('mail');
             //get results by filtering on key
-            $employees = Employee::where('employeeMailAddress','LIKE','%'.$searchMail.'%')->get();
+            $employees = Employee::where('employeeMailAddress','=',$searchMail)->get();
             //if there is a result
             if (count($employees)>0){
                 //return found results

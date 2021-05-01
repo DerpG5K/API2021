@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use App\Models\Custom;
 use App\Models\Parcel;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,7 @@ class CustomTableSeeder extends Seeder
 
         $faker = \Faker\Factory::create();
         $parcels = Parcel::all()->pluck('id')->toArray();
+
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 500; $i++) {
 

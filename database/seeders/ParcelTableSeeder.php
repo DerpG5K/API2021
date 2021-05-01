@@ -28,9 +28,6 @@ class ParcelTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         $shipments = Shipment::all()->pluck('id')->toArray();
         $flights = Flight::all()->pluck('id')->toArray();
-        $addresses = Address::all()->pluck('id')->toArray();
-        $deliveryTypes = DeliveryType::all()->pluck('id')->toArray();
-        $parcelType = ParcelTpe::all()->pluck('id')->toArray();
 
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 500; $i++) {
@@ -46,13 +43,7 @@ class ParcelTableSeeder extends Seeder
                 'length' => $faker->numberBetween(1, 100),
                 'priority' => $faker->text(5),
                 'isAllocated' => $faker->boolean(50),
-                'arrivalTimeStamp' => $faker->dateTime('now'),
-                'departureTimeStamp' => $faker->dateTime('now'),
-                'parcelTypeId' => $faker->randomElement($parcelType),
                 'flightId' => $faker->randomElement($flights),
-                'depAddressId' => $faker->randomElement($addresses),
-                'destAddressId' => $faker->randomElement($addresses),
-                'deliveryTypeId' => $faker->randomElement($deliveryTypes)
 
             ]);
         }

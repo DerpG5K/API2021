@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Order $order)
     {
         if ($request->has('email') && $request->get('email')!==''){
             //get request key: mail
             $searchEmail=$request->get('email');
             //get results by filtering on key
-            $customers = Customer::where('email','LIKE','%'.$searchEmail.'%')->get();
+            $customers = Customer::where('email','=',$searchEmail)->get();
             //if there is a result
             if (count($customers)>0){
                 //return found results
@@ -23,6 +24,12 @@ class CustomerController extends Controller
                 //if the result is empty
                 return 'not found';
             }
+        }
+        //check if the order value was passed, if so act accordingly to return result
+
+        elseif(!empty($order->toArray())){
+            return $order->customer()->get();
+
         }
         //in all other cases return ALL
         else{

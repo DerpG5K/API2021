@@ -17,7 +17,7 @@ class ParcelController extends Controller
             //get request key: searchTrackingNumber
             $searchTrackingNumber=$request->get('searchTrackingNumber');
             //get results by filtering on key
-            $parcels = Parcel::where('trackingNumber','LIKE','%'.$searchTrackingNumber.'%')->get();
+            $parcels = Parcel::where('trackingNumber','=',$searchTrackingNumber)->get();
             //if there is a result
             if (count($parcels)>0){
                 //return found results

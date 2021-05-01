@@ -43,6 +43,8 @@ class ShipmentTableSeeder extends Seeder
                 'depAddressId' => $faker->randomElement($addresses),
                 'destAddressId' => $faker->randomElement($addresses),
                 'deliveryTypeId' => $faker->randomElement($deliveryTypes),
+                'arrivalTimeStamp' => $faker->dateTime(now()),
+                'departureTimeStamp' => $faker->dateTime(now())
 
             ]);
         }

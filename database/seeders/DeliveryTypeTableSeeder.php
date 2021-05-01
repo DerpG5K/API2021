@@ -26,7 +26,6 @@ class DeliveryTypeTableSeeder extends Seeder
 
             DeliveryType::create([
                 'name' => $faker->name,
-                'bookingBefore' => $faker->dateTime('now'),
                 'info' => $faker->text(100),
                 'priceFactor' => $faker->numberBetween(1, 100),
 

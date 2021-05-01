@@ -15,7 +15,7 @@ class Customer extends Model
         'firstName',
         'lastName',
         'phoneNumber',
-        'type',
+        'addressId',
         'businessId',
     ];
 
@@ -37,5 +37,8 @@ class Customer extends Model
     public function ticketLogs()
     {
         return $this->hasMany(TicketLog::class, 'userId')->where('isCustomer', '=', true);
+    }
+    public function address() {
+        return $this->hasOne(Address::class,'id','AddressId');
     }
 }

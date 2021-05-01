@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('totalPrice');
             $table->boolean('isPaid');
             $table->text('extraInfo');
+            $table->string('orderNr');
             $table->timestamps();
         });
         Schema::table('orders', function ($table) {

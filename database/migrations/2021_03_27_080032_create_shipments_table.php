@@ -21,6 +21,8 @@ class CreateShipmentsTable extends Migration
             $table->integer('depAddressId')->unsigned()->nullable();
             $table->integer('destAddressId')->unsigned()->nullable();
             $table->integer('deliveryTypeId')->unsigned()->nullable();
+            $table->dateTime('departureTimeStamp');
+            $table->dateTime('arrivalTimeStamp');
             $table->timestamps();
 
         });
@@ -31,7 +33,6 @@ class CreateShipmentsTable extends Migration
             $table->foreign('depAddressId')->references('id')->on('addresses');
             $table->foreign('destAddressId')->references('id')->on('addresses');
             $table->foreign('deliveryTypeId')->references('id')->on('delivery_types');
-
         });
     }
 

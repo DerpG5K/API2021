@@ -9,7 +9,6 @@ class DeliveryType extends Model
     //
     protected $fillable = [
         'name',
-        'bookingBefore',
         'info',
         'priceFactor'];
 

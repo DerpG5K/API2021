@@ -14,6 +14,8 @@ class Shipment extends Model
         'reason',
         'depAddressId',
         'destAddressId',
+        'departureTimeStamp',
+        'arrivalTimeStamp',
         'deliveryTypeId',
         ];
     public function order()

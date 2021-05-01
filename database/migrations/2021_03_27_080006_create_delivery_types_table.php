@@ -16,7 +16,6 @@ class CreateDeliveryTypesTable extends Migration
         Schema::create('delivery_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->dateTime('bookingBefore');
             $table->string('info');
             $table->integer('priceFactor');
             $table->timestamps();

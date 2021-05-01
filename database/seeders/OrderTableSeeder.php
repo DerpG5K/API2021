@@ -34,7 +34,9 @@ class OrderTableSeeder extends Seeder
                 'customerId' => $faker->randomElement($customers),
                 'totalPrice' => $faker->randomFloat(2, 1, 5000),
                 'isPaid' => $faker->boolean($chanceOfGettingTrue = 50),
-                'extraInfo' => $faker->boolean($chanceOfGettingTrue = 50)
+                'extraInfo' => $faker->boolean($chanceOfGettingTrue = 50),
+                'orderNr' => 'B'.$faker->randomNumber(6),
+
             ]);
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
