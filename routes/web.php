@@ -18,10 +18,23 @@ Route::get('/', function () {
 });
 
 //Auth::routes();
-Route::get('logout', 'LoginController@logout');
+//Route::get('/portal/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Employee Login');
+
+Route::get('portal/login', 'Auth\LoginController@showLoginForm')->name('Employee login');
+Route::post('portal/login', 'Auth\LoginController@login')->name('Employee login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('customer/login', 'Auth\LoginController@showLoginForm');
+Route::post('customer/login', 'Auth\LoginController@login');
+
+
+Route::get('customer/sign-me-up', 'Auth\RegisterController@showRegistrationForm')->name('Customer signup');
+Route::post('customer/sign-me-up', 'Auth\RegisterController@register')->name('Customer signup');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
