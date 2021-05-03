@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Business;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class BusinessController extends Controller
 {
     public function index()
     {
-        return Business::all();
+        $results = Business::all();
+        return CollectionPaginator::paginate($results);
     }
 
     public function show(Business $business)

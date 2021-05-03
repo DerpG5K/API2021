@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class TicketController extends Controller
 {
     public function index()
     {
-            return Ticket::all();
+        $results = Ticket::all();
+        return CollectionPaginator::paginate($results);
     }
 
     public function show(Ticket $ticket)

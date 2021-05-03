@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Packages;
 use Facade\Ignition\Support\Packagist\Package;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class PackagesController extends Controller
     //
     public function index()
     {
-        return Packages::all();
+        $results = Packages::all();
+        return CollectionPaginator::paginate($results);
     }
 
     public function show(Packages $id)

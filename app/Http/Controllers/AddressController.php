@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Helpers\CollectionPaginator;
 use App\Models\Order;
 use App\Models\Parcel;
 use App\Models\Address;
@@ -20,7 +21,8 @@ class AddressController extends Controller
         }
         //in all other cases return ALL
         else{
-            return Address::all();
+            $results = Address::all();
+            return CollectionPaginator::paginate($results);
         }
     }
 

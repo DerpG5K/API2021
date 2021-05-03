@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Helpers\CollectionPaginator;
 use App\Models\Address;
 use App\Models\Order;
 use App\Models\Parcel;
@@ -11,7 +12,8 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return Order::all();
+        $results = Order::all();
+        return CollectionPaginator::paginate($results);
     }
 
     public function show(Order $order)

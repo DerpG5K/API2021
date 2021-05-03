@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Flight;
 use App\Models\Order;
 use App\Models\Parcel;
@@ -15,11 +16,13 @@ class FlightController extends Controller
         //check if the Parcel value was passed, if so act accordingly to return result
 
         if(!empty($parcel->toArray())){
-            return $parcel->flight()->get();
+            $results = $parcel->flight()->get();
+            return CollectionPaginator::paginate($results);
         }
         //in all other cases return ALL
         else{
-            return Flight::all();
+            $results = Flight::all();
+            return CollectionPaginator::paginate($results);
         }
     }
 
