@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class EmployeeController extends Controller
         }
         //in all other cases return ALL
         else{
-            return Employee::all();
+            $results = Employee::all();
+            return CollectionPaginator::paginate($results);
 
         }
     }

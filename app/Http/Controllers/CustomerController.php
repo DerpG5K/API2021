@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Customer;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -28,12 +29,14 @@ class CustomerController extends Controller
         //check if the order value was passed, if so act accordingly to return result
 
         elseif(!empty($order->toArray())){
-            return $order->customer()->get();
+            $results = $order->customer()->get();
+            return CollectionPaginator::paginate($results);
 
         }
         //in all other cases return ALL
         else{
-            return Customer::all();
+            $results = Customer::all();
+            return CollectionPaginator::paginate($results);
 
         }
     }

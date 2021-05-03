@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CollectionPaginator;
 use App\Models\Order;
 use App\Models\Shipment;
 use Illuminate\Http\Request;
@@ -14,11 +15,13 @@ class ShipmentController extends Controller
         //check if the order value was passed, if so act accordingly to return result
 
         if(!empty($order->toArray())){
-            return $order->shipments()->get();
+            $results = $order->shipments()->get();
+            return CollectionPaginator::paginate($results);
         }
         //in all other cases return ALL
         else{
-            return Shipment::all();
+            $results = Shipment::all();
+            return CollectionPaginator::paginate($results);
         }
     }
 
